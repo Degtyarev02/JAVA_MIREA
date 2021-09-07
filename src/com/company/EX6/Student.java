@@ -48,7 +48,6 @@ public class Student implements Comparable<Student> {
         }
     }
 
-    //__________________________________________________________________________
     private static Student[] mergeArrays(Student[] a1, Student[] a2) {
         Student[] result = new Student[a1.length + a2.length];
         System.arraycopy(a1, 0, result, 0, a1.length);
