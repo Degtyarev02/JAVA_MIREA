@@ -1,2 +1,5 @@
-package com.company.EX7;public class CardGameOnDoubleList {
+package com.company.EX7;
+
+public class CardGameOnDoubleList {
+
 }

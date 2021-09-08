@@ -18,16 +18,26 @@ public class CardGameOnQueue {
             Integer player1Card = queueForPlayer1.poll();
             Integer player2Card = queueForPlayer2.poll();
             if (player1Card > player2Card) {
-                queueForPlayer1.add(player1Card);
-                queueForPlayer1.add(player2Card);
+                if (player1Card == 9 && player2Card == 0) {
+                    queueForPlayer2.add(player2Card);
+                    queueForPlayer2.add(player1Card);
+                } else {
+                    queueForPlayer1.add(player1Card);
+                    queueForPlayer1.add(player2Card);
+                }
             } else {
-                queueForPlayer2.add(player2Card);
-                queueForPlayer2.add(player1Card);
+                if (player2Card == 9 && player1Card == 0) {
+                    queueForPlayer1.add(player1Card);
+                    queueForPlayer1.add(player2Card);
+                } else {
+                    queueForPlayer2.add(player2Card);
+                    queueForPlayer2.add(player1Card);
+                }
             }
         }
 
-        if(count == 106) System.out.println("Botva");
-        else if(queueForPlayer2.isEmpty()) System.out.println("First");
+        if (count == 106) System.out.println("Botva");
+        else if (queueForPlayer2.isEmpty()) System.out.println("First");
         else System.out.println("Second");
         System.out.println("Number of moves: " + count);
 

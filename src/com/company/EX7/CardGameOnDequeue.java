@@ -18,16 +18,27 @@ public class CardGameOnDequeue {
             Integer player1Card = dequeForPlayer1.removeFirst();
             Integer player2Card = dequeForPlayer2.removeFirst();
             if (player1Card > player2Card) {
-                dequeForPlayer1.addLast(player1Card);
-                dequeForPlayer1.addLast(player2Card);
+                if (player1Card == 9 && player2Card == 0) {
+
+                    dequeForPlayer2.addLast(player2Card);
+                    dequeForPlayer2.addLast(player1Card);
+                } else {
+                    dequeForPlayer1.addLast(player1Card);
+                    dequeForPlayer1.addLast(player2Card);
+                }
             } else {
-                dequeForPlayer2.addLast(player2Card);
-                dequeForPlayer2.addLast(player1Card);
+                if (player2Card == 9 && player1Card == 0) {
+                    dequeForPlayer1.addLast(player1Card);
+                    dequeForPlayer1.addLast(player2Card);
+                } else {
+                    dequeForPlayer2.addLast(player2Card);
+                    dequeForPlayer2.addLast(player1Card);
+                }
             }
         }
 
-        if(count == 106) System.out.println("Botva");
-        else if(dequeForPlayer2.isEmpty()) System.out.println("First");
+        if (count == 106) System.out.println("Botva");
+        else if (dequeForPlayer2.isEmpty()) System.out.println("First");
         else System.out.println("Second");
         System.out.println("Number of moves: " + count);
 

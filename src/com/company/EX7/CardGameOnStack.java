@@ -21,16 +21,26 @@ public class CardGameOnStack {
             Integer player2Card = stackForPlayer2.get(0);
             stackForPlayer2.remove(0);
             if (player1Card > player2Card) {
-                stackForPlayer1.push(player1Card);
-                stackForPlayer1.push(player2Card);
+                if (player1Card == 9 && player2Card == 0) {
+                    stackForPlayer2.push(player2Card);
+                    stackForPlayer2.push(player1Card);
+                } else {
+                    stackForPlayer1.push(player1Card);
+                    stackForPlayer1.push(player2Card);
+                }
             } else {
-                stackForPlayer2.push(player2Card);
-                stackForPlayer2.push(player1Card);
+                if (player2Card == 9 && player1Card == 0) {
+                    stackForPlayer1.push(player1Card);
+                    stackForPlayer1.push(player2Card);
+                } else {
+                    stackForPlayer2.push(player2Card);
+                    stackForPlayer2.push(player1Card);
+                }
             }
         }
 
-        if(count == 106) System.out.println("Botva");
-        else if(stackForPlayer1.isEmpty()) System.out.println("First");
+        if (count == 106) System.out.println("Botva");
+        else if (stackForPlayer1.isEmpty()) System.out.println("First");
         else System.out.println("Second");
         System.out.println("Number of moves: " + count);
 
