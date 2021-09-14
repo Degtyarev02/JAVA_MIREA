@@ -3,9 +3,8 @@ package com.company.EX5;
 import java.util.Scanner;
 
 public class Recursion {
-    public static String recursion_for_prime_number(int n, int i) {
-        // i- дополнительный параметр. При вызове должен быть равен 2
-        // Базовый случай
+    public static String recursion_for_prime_number(int n, int i)
+    {
         if (n < 2) {
             return "NO";
         } else if (n == 2) {
@@ -53,6 +52,6 @@ public class Recursion {
         n = in.nextInt();
         System.out.println(recursion_for_prime_number(n, 2)); // вызов рекурсивной функции
         recursion_for_number_multiplier(n, 2);
-        System.out.println(palindrome("radar"));
+        System.out.println(palindrome("radarb"));
     }
 }

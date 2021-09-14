@@ -3,16 +3,22 @@ package com.company.EX7;
 import java.util.*;
 
 public class CardGameOnQueue {
-    Queue<Integer> queueForPlayer1 = new PriorityQueue<>();
-    Queue<Integer> queueForPlayer2 = new PriorityQueue<>();
+    Queue<Integer> queueForPlayer1;
+    Queue<Integer> queueForPlayer2;
     int count = 0;
 
-    public void start() {
-        Scanner in = new Scanner(System.in);
+    public Queue<Integer> convertStringIntoIntCollection(String stringCards) {
+        Queue<Integer> cardQueue = new LinkedList<>();
         for (int i = 0; i < 5; i++) {
-            queueForPlayer1.add(in.nextInt());
-            queueForPlayer2.add(in.nextInt());
+            cardQueue.add(Integer.parseInt(String.valueOf(stringCards.charAt(i))));
         }
+        return cardQueue;
+
+    }
+
+    public void start(String stringCardsFor1, String stringCardsFor2) {
+        queueForPlayer1 = convertStringIntoIntCollection(stringCardsFor1);
+        queueForPlayer2 = convertStringIntoIntCollection(stringCardsFor2);
         while (!queueForPlayer1.isEmpty() && !queueForPlayer2.isEmpty() && count != 106) {
             count++;
             Integer player1Card = queueForPlayer1.poll();
@@ -44,7 +50,7 @@ public class CardGameOnQueue {
     }
 
     public static void main(String[] args) {
-        CardGameOnStack cardGameOnStack = new CardGameOnStack();
-        cardGameOnStack.start();
+        CardGameOnQueue cardGameOnQueue = new CardGameOnQueue();
+        cardGameOnQueue.start("13579", "24680");
     }
 }

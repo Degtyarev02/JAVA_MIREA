@@ -17,7 +17,7 @@ public class SwingEx extends JFrame {
     static int realMadridScore = 0;
 
     public SwingEx() {
-        font = new Font("sanserif", Font.BOLD, 24);
+        font = new Font("roboto", Font.BOLD, 24);
 
         setMainFrame();
 

@@ -1,19 +1,28 @@
 package com.company.EX7;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class CardGameOnStack {
-    Stack<Integer> stackForPlayer1 = new Stack<Integer>();
-    Stack<Integer> stackForPlayer2 = new Stack<Integer>();
+    Stack<Integer> stackForPlayer1;
+    Stack<Integer> stackForPlayer2;
     int count = 0;
 
-    public void start() {
-        Scanner in = new Scanner(System.in);
+    public Stack<Integer> convertStringIntoIntCollection(String stringCards) {
+        Stack<Integer> cardStack = new Stack<>();
         for (int i = 0; i < 5; i++) {
-            stackForPlayer1.push(in.nextInt());
-            stackForPlayer2.push(in.nextInt());
+            cardStack.push(Integer.parseInt(String.valueOf(stringCards.charAt(i))));
         }
+        System.out.println(cardStack);
+        return cardStack;
+
+    }
+
+    public void start(String stringCardsFor1, String stringCardsFor2) {
+        stackForPlayer1 = convertStringIntoIntCollection(stringCardsFor1);
+        stackForPlayer2 = convertStringIntoIntCollection(stringCardsFor2);
+
         while (!stackForPlayer1.isEmpty() && !stackForPlayer2.isEmpty() && count != 106) {
             count++;
             Integer player1Card = stackForPlayer1.get(0);
@@ -48,6 +57,6 @@ public class CardGameOnStack {
 
     public static void main(String[] args) {
         CardGameOnStack cardGameOnStack = new CardGameOnStack();
-        cardGameOnStack.start();
+        cardGameOnStack.start("13579", "24680");
     }
 }

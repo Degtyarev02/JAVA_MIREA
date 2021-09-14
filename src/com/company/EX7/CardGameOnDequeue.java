@@ -3,16 +3,23 @@ package com.company.EX7;
 import java.util.*;
 
 public class CardGameOnDequeue {
-    Deque<Integer> dequeForPlayer1 = new LinkedList<>();
-    Deque<Integer> dequeForPlayer2 = new LinkedList<>();
+    Deque<Integer> dequeForPlayer1;
+    Deque<Integer> dequeForPlayer2;
     int count = 0;
 
-    public void start() {
-        Scanner in = new Scanner(System.in);
+    public Deque<Integer> convertStringIntoIntCollection(String stringCards) {
+        Deque<Integer> cardDeQue = new LinkedList<>();
         for (int i = 0; i < 5; i++) {
-            dequeForPlayer1.addLast(in.nextInt());
-            dequeForPlayer2.addLast(in.nextInt());
+            cardDeQue.addLast(Integer.parseInt(String.valueOf(stringCards.charAt(i))));
         }
+        System.out.println(cardDeQue);
+        return cardDeQue;
+    }
+
+    public void start(String stringCardsFor1, String stringCardsFor2) {
+        Scanner in = new Scanner(System.in);
+        dequeForPlayer1 = convertStringIntoIntCollection(stringCardsFor1);
+        dequeForPlayer2 = convertStringIntoIntCollection(stringCardsFor2);
         while (!dequeForPlayer1.isEmpty() && !dequeForPlayer2.isEmpty() && count != 106) {
             count++;
             Integer player1Card = dequeForPlayer1.removeFirst();
@@ -45,7 +52,7 @@ public class CardGameOnDequeue {
     }
 
     public static void main(String[] args) {
-        CardGameOnStack cardGameOnStack = new CardGameOnStack();
-        cardGameOnStack.start();
+        CardGameOnDequeue cardGameOnDequeue = new CardGameOnDequeue();
+        cardGameOnDequeue.start("13579", "24680");
     }
 }
