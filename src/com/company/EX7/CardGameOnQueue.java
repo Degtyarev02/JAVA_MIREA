@@ -31,7 +31,7 @@ public class CardGameOnQueue {
                     queueForPlayer1.add(player1Card);
                     queueForPlayer1.add(player2Card);
                 }
-            } else {
+            } else if (player1Card < player2Card) {
                 if (player2Card == 9 && player1Card == 0) {
                     queueForPlayer1.add(player1Card);
                     queueForPlayer1.add(player2Card);
@@ -39,6 +39,9 @@ public class CardGameOnQueue {
                     queueForPlayer2.add(player2Card);
                     queueForPlayer2.add(player1Card);
                 }
+            } else {
+                    queueForPlayer2.add(player2Card);
+                    queueForPlayer1.add(player1Card);
             }
         }
 
@@ -51,6 +54,6 @@ public class CardGameOnQueue {
 
     public static void main(String[] args) {
         CardGameOnQueue cardGameOnQueue = new CardGameOnQueue();
-        cardGameOnQueue.start("13579", "24680");
+        cardGameOnQueue.start("24242", "42424");
     }
 }

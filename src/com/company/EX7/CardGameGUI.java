@@ -71,7 +71,7 @@ public class CardGameGUI extends JFrame {
                     nextMove.setEnabled(false);
                     if (count == 106)
                         winner.setText("Botva");
-                    else if (stackForPlayer1.isEmpty())
+                    else if (stackForPlayer2.isEmpty())
                         winner.setText("First: number of moves = " + count);
                     else
                         winner.setText("Second: number of moves = " + count);
@@ -113,6 +113,6 @@ public class CardGameGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        CardGameGUI cardGameGUI = new CardGameGUI("13579", "24680");
+        CardGameGUI cardGameGUI = new CardGameGUI("24242", "42424");
     }
 }

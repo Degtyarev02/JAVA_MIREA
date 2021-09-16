@@ -32,7 +32,7 @@ public class CardGameOnDoubleList {
                     linkedListForPlayer1.addLast(player1Card);
                     linkedListForPlayer1.addLast(player2Card);
                 }
-            } else {
+            } else if (player1Card < player2Card) {
                 if (player2Card == 9 && player1Card == 0) {
                     linkedListForPlayer1.addLast(player1Card);
                     linkedListForPlayer1.addLast(player2Card);
@@ -40,6 +40,9 @@ public class CardGameOnDoubleList {
                     linkedListForPlayer2.addLast(player2Card);
                     linkedListForPlayer2.addLast(player1Card);
                 }
+            } else {
+                linkedListForPlayer1.addLast(player1Card);
+                linkedListForPlayer2.addLast(player2Card);
             }
         }
 

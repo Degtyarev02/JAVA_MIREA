@@ -33,7 +33,7 @@ public class CardGameOnDequeue {
                     dequeForPlayer1.addLast(player1Card);
                     dequeForPlayer1.addLast(player2Card);
                 }
-            } else {
+            } else if (player1Card < player2Card){
                 if (player2Card == 9 && player1Card == 0) {
                     dequeForPlayer1.addLast(player1Card);
                     dequeForPlayer1.addLast(player2Card);
@@ -41,6 +41,9 @@ public class CardGameOnDequeue {
                     dequeForPlayer2.addLast(player2Card);
                     dequeForPlayer2.addLast(player1Card);
                 }
+            } else {
+                dequeForPlayer1.addLast(player1Card);
+                dequeForPlayer2.addLast(player2Card);
             }
         }
 
