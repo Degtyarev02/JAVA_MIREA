@@ -55,7 +55,7 @@ public class CardGameGUI extends JFrame {
                             stackForPlayer1.push(player1Card);
                             stackForPlayer1.push(player2Card);
                         }
-                    } else {
+                    } else if (player1Card < player2Card) {
                         if (player2Card == 9 && player1Card == 0) {
                             stackForPlayer1.push(player1Card);
                             stackForPlayer1.push(player2Card);
@@ -63,6 +63,9 @@ public class CardGameGUI extends JFrame {
                             stackForPlayer2.push(player2Card);
                             stackForPlayer2.push(player1Card);
                         }
+                    } else {
+                        stackForPlayer1.push(player1Card);
+                        stackForPlayer2.push(player2Card);
                     }
 
                     firstPlayer.setText(stackForPlayer1.toString());
@@ -101,8 +104,6 @@ public class CardGameGUI extends JFrame {
         mainFrame.add(winner, BorderLayout.NORTH);
 
     }
-
-
 
     public void setMainFrame() {
         mainFrame = new JFrame("Card Game");
