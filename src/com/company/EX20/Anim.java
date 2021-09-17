@@ -16,7 +16,7 @@ public class Anim extends JPanel {
         setMainFrame();
         imageIcons = new BufferedImage[8];
         for (int i = 0; i < 8; i++) {
-            imageIcons[i] = ImageIO.read(new File("/home/vladimir/Рабочий стол/JAVA_MIREA/src/com/company/EX20/image_part_00"+(i+1)+".png"));
+            imageIcons[i] = ImageIO.read(new File("C:\\Users\\User\\Desktop\\JAVA_MIREA\\src\\com\\company\\EX20\\image_part_00"+(i+1)+".png"));
         }
         mainLabel = new JLabel();
         while (true) {
