@@ -26,6 +26,7 @@ public class SimpleArray<E> implements Simple<E> {
 
     @Override
     public void removeAt(int index) {
+        checkIndex(index);
         try {
             E[] temp = values;
             values = (E[]) new Object[temp.length-1];
@@ -44,6 +45,7 @@ public class SimpleArray<E> implements Simple<E> {
 
     @Override
     public E get(int index) {
+        checkIndex(index);
         return values[index];
     }
 
@@ -54,7 +56,16 @@ public class SimpleArray<E> implements Simple<E> {
 
     @Override
     public void set(int index, E e) {
+        checkIndex(index);
         values[index] = e;
+    }
+
+    public void checkIndex(int index) {
+        if(index < 0 || index >= values.length) throw new IndexOutOfBoundsException("Некорректный индекс");
+    }
+
+    public void clear() {
+        this.values = (E[]) new Object[0];
     }
 
 
@@ -73,6 +84,8 @@ public class SimpleArray<E> implements Simple<E> {
         System.out.println(simple.size());
         simple.set(2, 43);
         simple.remove();
+        System.out.println(simple);
+        simple.clear();
         System.out.println(simple);
     }
 }
