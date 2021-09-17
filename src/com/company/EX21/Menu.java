@@ -24,6 +24,7 @@ public class Menu {
         setMainFrame();
         setMenu();
         jTextArea = new JTextArea(10, 10);
+        jTextArea.setFont(new Font("Times New Roman", Font.PLAIN, 24));
         mainFrame.add(jTextArea);
 
         font1.addActionListener(new ActionListener() {
@@ -68,6 +69,7 @@ public class Menu {
             }
         });
 
+
     }
 
 
@@ -80,7 +82,6 @@ public class Menu {
     }
 
     public void setMenu() {
-
 
         menuBar = new JMenuBar();
 
