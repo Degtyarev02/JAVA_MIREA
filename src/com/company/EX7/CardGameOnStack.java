@@ -31,19 +31,19 @@ public class CardGameOnStack {
             stackForPlayer2.remove(0);
             if (player1Card > player2Card) {
                 if (player1Card == 9 && player2Card == 0) {
-                    stackForPlayer2.push(player1Card);
                     stackForPlayer2.push(player2Card);
+                    stackForPlayer2.push(player1Card);
                 } else {
-                    stackForPlayer1.push(player2Card);
                     stackForPlayer1.push(player1Card);
+                    stackForPlayer1.push(player2Card);
                 }
             } else if(player1Card < player2Card) {
                 if (player2Card == 9 && player1Card == 0) {
-                    stackForPlayer1.push(player2Card);
                     stackForPlayer1.push(player1Card);
+                    stackForPlayer1.push(player2Card);
                 } else {
-                    stackForPlayer2.push(player1Card);
                     stackForPlayer2.push(player2Card);
+                    stackForPlayer2.push(player1Card);
                 }
             } else {
                 stackForPlayer1.push(player1Card);
@@ -63,6 +63,6 @@ public class CardGameOnStack {
 
     public static void main(String[] args) {
         CardGameOnStack cardGameOnStack = new CardGameOnStack();
-        cardGameOnStack.start("424242", "242424");
+        cardGameOnStack.start("13579", "24680");
     }
 }
