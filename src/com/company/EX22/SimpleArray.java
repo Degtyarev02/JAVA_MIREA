@@ -80,6 +80,8 @@ public class SimpleArray<E> implements Simple<E> {
         simple.add(3);
         simple.add(6);
         simple.add(8);
+        simple.add(10);
+        simple.add(35);
         System.out.println(simple.get(2));
         System.out.println(simple.size());
         simple.set(2, 43);
