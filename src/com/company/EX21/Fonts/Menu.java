@@ -1,4 +1,4 @@
-package com.company.EX21;
+package com.company.EX21.Fonts;
 
 import javax.swing.*;
 import java.awt.*;

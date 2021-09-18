@@ -1,6 +1,8 @@
 package com.company.EX19.Priceable;
 
-public class Smartphone implements Priceable{
+import com.company.EX19.Nameable.Nameable;
+
+public class Smartphone implements Priceable, Nameable {
     private String model;
     private int price;
 
@@ -20,5 +22,10 @@ public class Smartphone implements Priceable{
     @Override
     public int getPrice() {
         return this.price;
+    }
+
+    @Override
+    public String getName() {
+        return this.model;
     }
 }
