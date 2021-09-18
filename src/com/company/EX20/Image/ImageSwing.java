@@ -17,14 +17,14 @@ public class ImageSwing extends JPanel {
 
     public ImageSwing(String path) throws IOException {
         setMainFrame();
-        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource(path)));
+        imageIcon = new ImageIcon(path, "image");
         mainLabel = new JLabel(imageIcon);
         mainFrame.add(mainLabel);
 
     }
 
     public void setMainFrame() {
-        mainFrame = new JFrame("Anim");
+        mainFrame = new JFrame("Image");
         mainFrame.setSize(700, 500);
         mainFrame.setLayout(new BorderLayout());
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
