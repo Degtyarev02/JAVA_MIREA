@@ -8,4 +8,5 @@ public interface Simple<E>{
     E get(int index);
     int size();
     void set(int index, E e);
+    void sort();
 }
