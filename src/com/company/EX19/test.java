@@ -1,5 +1,9 @@
 package com.company.EX19;
 
+import com.company.EX19.Priceable.Car;
+import com.company.EX19.Priceable.Priceable;
+import com.company.EX19.Priceable.Smartphone;
+
 public class test {
     public static void main(String[] args) {
         Priceable car = new Car(20000, "Audi");

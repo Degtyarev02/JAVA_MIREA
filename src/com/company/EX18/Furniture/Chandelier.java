@@ -1,4 +1,4 @@
-package com.company.EX18;
+package com.company.EX18.Furniture;
 
 public class Chandelier extends Furniture {
     public Chandelier(String title, String material, Integer price) {

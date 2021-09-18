@@ -1,4 +1,4 @@
-package com.company.EX18;
+package com.company.EX18.Furniture;
 
 public class FurnitureShop {
 

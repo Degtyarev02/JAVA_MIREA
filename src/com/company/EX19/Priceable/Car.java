@@ -1,4 +1,4 @@
-package com.company.EX19;
+package com.company.EX19.Priceable;
 
 public class Car implements Priceable{
     private int price;

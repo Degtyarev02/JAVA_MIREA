@@ -1,6 +1,6 @@
-package com.company.EX18;
+package com.company.EX18.Furniture;
 
-public class Chair extends Furniture{
+public class Chair extends Furniture {
     public Chair(String title, String material, Integer price) {
         super(title, material, price);
     }

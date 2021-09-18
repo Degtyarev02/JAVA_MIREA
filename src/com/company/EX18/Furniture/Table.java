@@ -1,6 +1,8 @@
-package com.company.EX18;
+package com.company.EX18.Furniture;
 
-public class Table extends Furniture{
+import com.company.EX18.Furniture.Furniture;
+
+public class Table extends Furniture {
     public Table(String title, String material, Integer price) {
         super(title, material, price);
     }

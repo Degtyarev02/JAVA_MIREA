@@ -1,4 +1,4 @@
-package com.company.EX19;
+package com.company.EX19.Priceable;
 
 public class Smartphone implements Priceable{
     private String model;
