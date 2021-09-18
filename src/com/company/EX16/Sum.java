@@ -1,7 +1,5 @@
 package com.company.EX16;
 
-import com.company.Main;
-
 import java.util.Arrays;
 
 public class Sum {
