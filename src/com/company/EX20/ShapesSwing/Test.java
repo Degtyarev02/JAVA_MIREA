@@ -10,7 +10,6 @@ public class Test extends JFrame {
     public Test()
     {
         super("Test");
-        JFrame.setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setSize(1920, 1080);
