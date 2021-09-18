@@ -25,7 +25,7 @@ public class ImageSwing extends JPanel {
 
     public void setMainFrame() {
         mainFrame = new JFrame("Image");
-        mainFrame.setSize(700, 500);
+        mainFrame.setSize(500, 500);
         mainFrame.setLayout(new BorderLayout());
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
