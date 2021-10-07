@@ -1,9 +1,9 @@
 package com.company.EX10.Furniture;
 
-public class ChairFactory implements ChairFabric{
+public class ChairFactory implements AbstractChairFactory {
     @Override
-    public Chair createVictorianChair() {
-        return new VictorianChair();
+    public Chair createVictorianChair(int age) {
+        return new VictorianChair(age);
     }
 
     @Override
