@@ -1,4 +1,4 @@
-package com.company.EX12.Task2;
+package com.company.EX12.Task4;
 
 public class TelNumber {
 

@@ -1,4 +1,4 @@
-package com.company.EX12.Task2.shirt;
+package com.company.EX12.Task3.shirt;
 
 public class Shirt {
     private String vendorCode;
