@@ -45,7 +45,5 @@ public class TestCollectionList {
         System.out.println(linkedList + " Size " + linkedList.size());
         linkedList.clear();
         System.out.println(linkedList + " Size " + linkedList.size());
-
-
     }
 }

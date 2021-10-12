@@ -1,7 +1,5 @@
 package com.company.EX7;
 
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.Stack;
 
 public class CardGameOnStack {
@@ -63,6 +61,6 @@ public class CardGameOnStack {
 
     public static void main(String[] args) {
         CardGameOnStack cardGameOnStack = new CardGameOnStack();
-        cardGameOnStack.start("13579", "24680");
+        cardGameOnStack.start("42424", "24242");
     }
 }
