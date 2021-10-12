@@ -46,8 +46,7 @@ public class SortingStudentsByGPA implements Comparable<SortingStudentsByGPA>{
         return (int) (this.GPA - o.getGPA() );
     }
 
-    public static void Quick_Sort( SortingStudentsByGPA[] data, int left,int right)
-    {
+    public static void Quick_Sort( SortingStudentsByGPA[] data, int left,int right) {
         int i;
         int j;
         SortingStudentsByGPA pivot;

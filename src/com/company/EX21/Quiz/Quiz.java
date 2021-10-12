@@ -46,6 +46,7 @@ public class Quiz extends JFrame {
                     } else {
                         inputField.setText("Вы угадали, поздравляем!");
                         inputField.setEnabled(false);
+                        return;
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
