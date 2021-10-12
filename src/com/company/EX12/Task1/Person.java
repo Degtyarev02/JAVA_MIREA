@@ -30,7 +30,7 @@ public class Person {
     }
 
     public static void main(String[] args) {
-        Person person = new Person("", "Degtyarev", "Sergeevich");
+        Person person = new Person("Vladimir", "Degtyarev", "Sergeevich");
         System.out.println(person.formatNSP());
     }
 }
