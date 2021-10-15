@@ -23,10 +23,12 @@ public class Words {
 
         ArrayList<String> wordsList = new ArrayList<>(Arrays.asList(words));
         while (wordsList.remove(""));
-
+        int count = 0;
         while (isYes(wordsList)) {
+            count++;
             Collections.shuffle(wordsList);
         }
+        System.out.println(count);
         for (String word : wordsList) {
             result.append(word).append(" ");
         }

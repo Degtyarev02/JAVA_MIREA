@@ -59,7 +59,7 @@ public class SortingStudentsByGPA implements Comparable<SortingStudentsByGPA>{
             while ((data[i].compareTo(pivot) > 0) && (i < right)) i++;
 
             while ((data[j].compareTo(pivot) < 0) && (j > left)) j--;
-            ;
+
             if (i <= j)
             {
                 temp = data[i];
