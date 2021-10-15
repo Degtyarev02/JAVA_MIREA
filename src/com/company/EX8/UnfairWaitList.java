@@ -1,9 +1,7 @@
 package com.company.EX8;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class UnfairWaitList<E> extends WaitList<E> {
 
@@ -15,14 +13,24 @@ public class UnfairWaitList<E> extends WaitList<E> {
     }
 
     public void remove(E element) {
-
-        content.remove(element);
-        oldElements.add(element);
+        if (content.peek().equals(element)) {
+            Queue<E> tmp = new ConcurrentLinkedQueue<>();
+            E tmp_element = content.poll();
+            while(!content.isEmpty()){
+                tmp.add(content.poll());
+            }
+            tmp.add(tmp_element);
+            content = tmp;
+            oldElements.add(element);
+        } else {
+            content.remove(element);
+            oldElements.add(element);
+        }
     }
 
     @Override
     public void add(E element) {
-        if(!(oldElements.contains(element))) {
+        if (!(oldElements.contains(element))) {
             content.add(element);
         } else {
             System.out.println("Нельзя вернуть удаленный");
