@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 hello world helloo
-=======
-jfdskfjskl Hello world
->>>>>>> 8c4343727220b9ace7d90cde35ebb5286ab44342
