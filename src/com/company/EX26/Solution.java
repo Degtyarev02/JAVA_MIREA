@@ -7,7 +7,6 @@ public class Solution {
 
 
     public static <T> ArrayList<T> newArrayList(T... elements) {
-        //напишите тут ваш код
         ArrayList<T> res = new ArrayList<>();
         Collections.addAll(res, elements);
 
@@ -19,7 +18,6 @@ public class Solution {
     }
 
     public static <K, V> HashMap<K, V> newHashMap(List<? extends K> keys, List<? extends V> values) {
-        //напишите тут ваш код
         if (keys.size() != values.size())
             throw new IllegalArgumentException();
 
