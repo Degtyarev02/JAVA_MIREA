@@ -21,11 +21,10 @@ public class UnfairWaitList<E> extends WaitList<E> {
             }
             tmp.add(tmp_element);
             content = tmp;
-            oldElements.add(element);
         } else {
             content.remove(element);
-            oldElements.add(element);
         }
+        oldElements.add(element);
     }
 
     @Override

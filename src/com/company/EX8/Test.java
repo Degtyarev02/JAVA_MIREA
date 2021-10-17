@@ -29,6 +29,7 @@ public class Test {
         System.out.println(unfairWaitList);
 
         unfairWaitList.remove(3);
+        System.out.println(unfairWaitList);
         unfairWaitList.remove(2);
         System.out.println(unfairWaitList);
         unfairWaitList.add(3);
