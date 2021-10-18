@@ -4,6 +4,7 @@ import com.company.EX14.Customer.Customer;
 import com.company.EX14.Drink;
 import com.company.EX14.Item;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -170,7 +171,7 @@ public class InternetOrder implements Order{
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Item item1 = new Drink("Vodka", "vodka");
         Item item2 = new Drink("Wine", "vodka");
         Item item3 = new Drink("Beer", "vodka");
