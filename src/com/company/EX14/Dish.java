@@ -31,4 +31,14 @@ public class Dish implements Item{
     public Integer getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return name + ": " + description + " Cost: " + price;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return -(price.compareTo(o.getPrice()));
+    }
 }

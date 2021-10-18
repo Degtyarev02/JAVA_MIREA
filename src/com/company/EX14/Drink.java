@@ -58,4 +58,14 @@ public final class Drink implements Item, Alcoholable{
         String type = getName();
         return DrinkTypeENUM.valueOf(type.toUpperCase(Locale.ROOT));
     }
+
+    @Override
+    public String toString() {
+        return name + ": " + description + " Cost: " + price;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return -(price.compareTo(o.getPrice()));
+    }
 }

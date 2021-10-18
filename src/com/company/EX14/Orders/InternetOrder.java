@@ -9,9 +9,14 @@ import java.util.HashSet;
 
 public class InternetOrder implements Order{
     private int size = 0;
+    private int totalCost = 0;
     private ListNode head;
     private ListNode tail;
     private Customer customer;
+
+    public InternetOrder(Customer customer) {
+        this.customer = customer;
+    }
 
     @Override
     public boolean add(Item item) {
@@ -27,6 +32,7 @@ public class InternetOrder implements Order{
             secondLast.next = tail;
         }
         size++;
+        totalCost += item.getPrice();
         return true;
     }
 
@@ -113,15 +119,15 @@ public class InternetOrder implements Order{
     public int removeAll(String itemName) {
         int count = 0;
         ListNode tmp = head;
-        ListNode finding = null;
-        for(int i = 0; i < size; i++){
-            if(tmp.item.getName().equals(itemName)){
+        int tmpSize = size;
+        for(int i = 0; i < tmpSize; i++){
+            if((tmp!= null) && (tmp.item.getName().equals(itemName))){
                 remove(tmp.item);
                 count++;
             }
             tmp = tmp.next;
         }
-        return 0;
+        return count;
     }
 
     @Override
@@ -131,12 +137,14 @@ public class InternetOrder implements Order{
 
     @Override
     public Item[] sortedItemsByCostDesc() {
-        return new Item[0];
+        Item[] items = getItems();
+        Arrays.sort(items);
+        return items;
     }
 
     @Override
     public int costTotal() {
-        return 0;
+        return totalCost;
     }
 
     @Override
@@ -166,13 +174,15 @@ public class InternetOrder implements Order{
         Item item1 = new Drink("Vodka", "vodka");
         Item item2 = new Drink("Wine", "vodka");
         Item item3 = new Drink("Beer", "vodka");
-        Order order = new InternetOrder();
+        Item item4 = new Drink("Beer", "vodka");
+        Order order = new InternetOrder(new Customer(23));
         order.add(item1);
         order.add(item2);
         order.add(item3);
-        order.remove(item1);
+        order.add(item4);
+        order.removeAll(item3);
         String[] name = order.itemsName();
-        System.out.println(Arrays.toString(name));
+        System.out.println(Arrays.toString(name) + " " + order.itemsQuantity());
     }
 
 }
