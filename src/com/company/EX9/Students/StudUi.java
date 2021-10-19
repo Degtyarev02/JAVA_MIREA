@@ -126,39 +126,44 @@ public class StudUi implements LabClassUi {
 
         System.out.println(arrayListOfStudents);
         while (true) {
-            Scanner in = new Scanner(System.in);
-            Integer findingGPA;
+            try {
+                Scanner in = new Scanner(System.in);
+                Integer findingGPA;
 
-            System.out.println("Enter a GPA");
-            findingGPA = in.nextInt();
-            boolean flag = false;
-            for (Students student : arrayListOfStudents) {
-                if (student.GPA.equals(findingGPA)) {
-                    System.out.println(student);
-                    flag = true;
+                System.out.println("Enter a GPA");
+                findingGPA = in.nextInt();
+                boolean flag = false;
+                for (Students student : arrayListOfStudents) {
+                    if (student.GPA.equals(findingGPA)) {
+                        System.out.println(student);
+                        flag = true;
+                    }
                 }
-            }
 
-            if (!flag) {
-                throw new IncorrectLineException("Bad GPA value");
-            }
-
-            System.out.println("Enter a Name and Surname");
-            String findingName = in.next();
-            String findingSurname = in.next();
-            if (findingName.isEmpty() || findingSurname.isEmpty())
-                throw new EmptyLineException("Empty name or surname");
-            flag = false;
-            for (Students student : arrayListOfStudents) {
-                if (student.name.equals(findingName) && student.surname.equals(findingSurname)) {
-                    System.out.println(student);
-                    flag = true;
+                if (!flag) {
+                    throw new IncorrectLineException("Bad GPA value");
                 }
-            }
-            if (!flag) {
-                throw new IncorrectLineException("Bad name or Surname");
-            }
 
+
+                System.out.println("Enter a Name and Surname");
+                String findingName = in.next();
+                String findingSurname = in.next();
+                if (findingName.isEmpty() || findingSurname.isEmpty())
+                    throw new EmptyLineException("Empty name or surname");
+                flag = false;
+                for (Students student : arrayListOfStudents) {
+                    if (student.name.equals(findingName) && student.surname.equals(findingSurname)) {
+                        System.out.println(student);
+                        flag = true;
+                    }
+                }
+                if (!flag) {
+                    throw new IncorrectLineException("Bad name or Surname");
+                }
+
+            } catch (IncorrectLineException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
