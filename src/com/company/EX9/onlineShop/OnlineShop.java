@@ -24,8 +24,9 @@ public class OnlineShop {
             }
         }
         //Выбрасываем исключение если ИНН недействителен
+        assert tmp != null;
         if (!buyer.getTIN().equals(tmp.getTIN())) {
-            throw new IllegalArgumentException();
+            throw new BadTINException("Bad TIN");
             //Иначе покупка совершилась
         } else {
             System.out.println("Покупка совершена");
@@ -40,8 +41,8 @@ public class OnlineShop {
         try {
             buy(me);
             //Ловим ошибку
-        } catch (IllegalArgumentException e) {
-            throw new BadTINException(me.getTIN() + " Bad TIN", e);
+        } catch (BadTINException e) {
+            e.printStackTrace();
         }
     }
 

@@ -11,5 +11,4 @@ public interface OrderManager {
     int itemsQuantity(Item item);
     Order[] getOrders();
     int ordersCostSummary();
-    
 }

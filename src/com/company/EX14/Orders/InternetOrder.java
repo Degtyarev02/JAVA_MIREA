@@ -7,6 +7,7 @@ import com.company.EX14.Item;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class InternetOrder implements Order{
     private int size = 0;
@@ -171,19 +172,16 @@ public class InternetOrder implements Order{
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        Item item1 = new Drink("Vodka", "vodka");
-        Item item2 = new Drink("Wine", "vodka");
-        Item item3 = new Drink("Beer", "vodka");
-        Item item4 = new Drink("Beer", "vodka");
-        Order order = new InternetOrder(new Customer(23));
-        order.add(item1);
-        order.add(item2);
-        order.add(item3);
-        order.add(item4);
-        order.removeAll(item3);
-        String[] name = order.itemsName();
-        System.out.println(Arrays.toString(name) + " " + order.itemsQuantity());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InternetOrder that = (InternetOrder) o;
+        return size == that.size && totalCost == that.totalCost && Objects.equals(head, that.head) && Objects.equals(tail, that.tail) && Objects.equals(customer, that.customer);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(size, totalCost, head, tail, customer);
+    }
 }

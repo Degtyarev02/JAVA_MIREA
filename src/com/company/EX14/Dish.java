@@ -32,9 +32,11 @@ public class Dish implements Item{
         return price;
     }
 
+
+
     @Override
     public String toString() {
-        return name + ": " + description + " Cost: " + price;
+        return name + ": " + description + ". Cost: " + price;
     }
 
     @Override

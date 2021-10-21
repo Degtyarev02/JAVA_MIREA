@@ -7,22 +7,26 @@ public final class Drink implements Item, Alcoholable{
     private final String description;
     private final Integer price;
     private final Double alcoholVol;
+    private final DrinkTypeENUM type;
 
-    public Drink(String name, String description) {
+    public Drink(String name, String description, DrinkTypeENUM type) {
+        this.type = type;
         this.name = name;
         this.description = description;
         this.price = 0;
         this.alcoholVol = 0.0;
     }
 
-    public Drink(String name, String description, Integer price) {
+    public Drink(String name, String description, Integer price, DrinkTypeENUM type) {
+        this.type = type;
         this.name = name;
         this.description = description;
         this.price = price;
         this.alcoholVol = 0.0;
     }
 
-    public Drink(String name, String description, Integer price, Double alcoholVol) {
+    public Drink(String name, String description, Integer price, Double alcoholVol, DrinkTypeENUM type) {
+        this.type = type;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -46,7 +50,7 @@ public final class Drink implements Item, Alcoholable{
 
     @Override
     public boolean isAlcoholicDrink() {
-        return false;
+        return alcoholVol > 0.0;
     }
 
     @Override
@@ -55,13 +59,12 @@ public final class Drink implements Item, Alcoholable{
     }
 
     public DrinkTypeENUM getType(){
-        String type = getName();
-        return DrinkTypeENUM.valueOf(type.toUpperCase(Locale.ROOT));
+        return type;
     }
 
     @Override
     public String toString() {
-        return name + ": " + description + " Cost: " + price;
+        return name + ": " + description + ". Cost: " + price;
     }
 
     @Override

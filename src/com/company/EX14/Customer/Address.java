@@ -11,13 +11,15 @@ public final class Address {
     private final int apartmentNumber;
     private final char buildingLetter;
 
-    public Address(String cityName, String streetName, int zipCode, int buildingNumber, int apartmentNumber, char buildingLetter) {
-        this.cityName = cityName;
-        this.streetName = streetName;
-        this.zipCode = zipCode;
-        this.buildingNumber = buildingNumber;
-        this.apartmentNumber = apartmentNumber;
-        this.buildingLetter = buildingLetter;
+    public Address(String address) {
+        String[] parseAddress = address.split("\\,");
+
+        this.cityName = parseAddress[0];
+        this.streetName = parseAddress[1];
+        this.zipCode = Integer.parseInt(parseAddress[2]);
+        this.buildingNumber = Integer.parseInt(parseAddress[3]);
+        this.apartmentNumber = Integer.parseInt(parseAddress[4]);
+        this.buildingLetter = parseAddress[5].charAt(0);
     }
 
     public Address() {
