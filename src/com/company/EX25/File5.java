@@ -18,6 +18,8 @@ public class File5 {
     }
 
     public static void main(String[] args) {
-        Filelist("/");
+
+        //Корневая папка для линукс, для винды написать C://
+        Filelist("C://");
     }
 }
