@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 
 public class AuthGUI {
 	JFrame mainFrame;
-	JLabel label;
 
 	private void setFrame() {
 		mainFrame = new JFrame("Authentication");
@@ -24,7 +23,7 @@ public class AuthGUI {
 
 	public AuthGUI() {
 		setFrame();
-		label = new JLabel("Зарегистрируйтесь!");
+		JLabel label = new JLabel("Зарегистрируйтесь!");
 		label.setFont(new Font("Roboto", Font.PLAIN, 24));
 		label.setSize(600, 40);
 		label.setLocation(50, 50);
@@ -106,7 +105,7 @@ public class AuthGUI {
 					age = Integer.parseInt(tAge.getText());
 					Customer me = new Customer(name, surname, age, new Address(addressText));
 					mainFrame.dispose();
-					InternetOrderGUI internetOrderGUI = new InternetOrderGUI();
+					InternetOrderGUI internetOrderGUI = new InternetOrderGUI(me);
 				} else {
 					JOptionPane.showMessageDialog(null, "Вы ввели не все данные!", "Warning", JOptionPane.WARNING_MESSAGE);
 				}

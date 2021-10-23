@@ -16,6 +16,13 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(String firstName, String secondName, int age) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.age = age;
+        this.address = null;
+    }
+
     public Customer(int age) {
         this.firstName = "firstName";
         this.secondName = "second";
