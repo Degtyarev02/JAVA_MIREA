@@ -59,6 +59,7 @@ public class InternetOrderGUI {
 
 ```java
 public class InternetOrderGui {
+	//...
 	public void actionPerformed(ActionEvent e) {
 		try {
 			Drink drink = (Drink) comboBox.getSelectedItem();
