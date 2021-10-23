@@ -9,7 +9,7 @@
 P.S. Задачи приняты, переделать их можно, но не необходимо
 
 1. **EX7*** - решение на ___GUI___ можно оформить красивее
-2. **EX10//Editor**- решение можно исправить на GUI
+2. **EX10//Editor** - решение можно исправить на GUI
 3. **EX20//Anim** - анимация работает, работает криво (низкий FPS)
 4. **EX21** - могут придраться за реализацию класса ***Shape***
 5. **EX10, EX13** - это одна и та же задача
@@ -35,11 +35,11 @@ P.S. Задачи приняты, переделать их можно, но н�
 кнопки ***Удалить*** позиция убирается из заказа.
 
 При добавлении и удалении происходит перезапись текста в текстовом поле и изменение заказа в объекте класса ***
-InternetOrder***
+InternetOrder***, а так же меняется значение в поле цена.
 
 ```java
-public class InternetOrderGUI{
-    //код программы
+public class InternetOrderGUI {
+	//...
 	public void refactorMainOrderTextArea() {
 		Item[] currentItems = order.getItems();
 		mainOrder.setText("Ваш заказ:\n");
@@ -52,3 +52,24 @@ public class InternetOrderGUI{
 ```
 
 ![order](src/com/company/img/netOrder.png)
+
+Если вы создадите пользователя, которому нет 18 лет, вы не сможете добавить алкоголь в позицию заказа.
+
+За это отвечает код:
+
+```java
+public class InternetOrderGui {
+	public void actionPerformed(ActionEvent e) {
+		try {
+			Drink drink = (Drink) comboBox.getSelectedItem();
+			if (customer.getAge() < 18 && Objects.requireNonNull(drink).isAlcoholicDrink()) {
+				JOptionPane.showMessageDialog(null, "Вам еще нет 18!", "Нельзя", JOptionPane.WARNING_MESSAGE);
+				return;
+			}
+		} catch (Exception ex) {}
+		order.add((Item) comboBox.getSelectedItem());
+		refactorMainOrderTextArea();
+	}
+}
+```
+![order](src/com/company/img/under18.png)
