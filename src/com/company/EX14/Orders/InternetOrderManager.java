@@ -1,8 +1,6 @@
 package com.company.EX14.Orders;
 
-import com.company.EX14.Item;
-
-import java.util.Queue;
+import com.company.EX14.Items.Item;
 
 public class InternetOrderManager implements OrderManager {
     public int all_cost = 0;

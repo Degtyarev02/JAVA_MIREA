@@ -1,6 +1,4 @@
-package com.company.EX14;
-
-import java.util.Locale;
+package com.company.EX14.Items;
 
 public final class Drink implements Item, Alcoholable{
     private final String name;

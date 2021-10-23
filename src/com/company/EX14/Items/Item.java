@@ -1,4 +1,4 @@
-package com.company.EX14;
+package com.company.EX14.Items;
 
 public interface Item extends Comparable<Item>{
     String getName();

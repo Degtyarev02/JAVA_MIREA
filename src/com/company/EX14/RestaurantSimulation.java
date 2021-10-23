@@ -2,8 +2,10 @@ package com.company.EX14;
 
 import com.company.EX14.Customer.Address;
 import com.company.EX14.Customer.Customer;
-import com.company.EX14.Orders.Order;
-import com.company.EX14.Orders.OrderManager;
+import com.company.EX14.Items.Dish;
+import com.company.EX14.Items.Drink;
+import com.company.EX14.Items.DrinkTypeENUM;
+import com.company.EX14.Items.Item;
 import com.company.EX14.Orders.TableOrdersManager;
 
 import java.util.Scanner;
