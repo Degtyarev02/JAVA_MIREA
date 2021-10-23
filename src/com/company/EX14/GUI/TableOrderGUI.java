@@ -99,7 +99,7 @@ public class TableOrderGUI {
 		mainFrame.add(comboBox);
 
 		JButton addItemButton = new JButton("Добавить");
-		addItemButton.setSize(100, 30);
+		addItemButton.setSize(130, 30);
 		addItemButton.setLocation(200, 120);
 		addItemButton.setBackground(new Color(0x129601));
 		addItemButton.setForeground(Color.white);
@@ -122,7 +122,7 @@ public class TableOrderGUI {
 
 		JButton removeItemButton = new JButton("Удалить");
 		removeItemButton.setSize(100, 30);
-		removeItemButton.setLocation(320, 120);
+		removeItemButton.setLocation(340, 120);
 		removeItemButton.setBackground(new Color(0x129601));
 		removeItemButton.setForeground(Color.white);
 		removeItemButton.setFocusable(false);
@@ -143,8 +143,8 @@ public class TableOrderGUI {
 		mainFrame.add(mainOrder);
 
 		JButton acceptOrderButton = new JButton("Подтвердить");
-		acceptOrderButton.setFont(new Font("Arial", Font.PLAIN, 24));
-		acceptOrderButton.setSize(200, 40);
+		acceptOrderButton.setFont(new Font("Arial", Font.PLAIN, 20));
+		acceptOrderButton.setSize(180, 40);
 		acceptOrderButton.setLocation(20, 700);
 		acceptOrderButton.setBackground(new Color(0x129601));
 		acceptOrderButton.setForeground(Color.white);
