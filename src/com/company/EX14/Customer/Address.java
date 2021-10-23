@@ -54,4 +54,14 @@ public final class Address {
     public char getBuildingLetter() {
         return buildingLetter;
     }
+
+    @Override
+    public String toString() {
+        return "Город: " + cityName +
+                "\nУлица: " + streetName +
+                "\nИндекс: " + zipCode +
+                "\nДом: " + buildingNumber +
+                "\nКвартира: " + apartmentNumber +
+                "\nСтроение: " + buildingLetter;
+    }
 }

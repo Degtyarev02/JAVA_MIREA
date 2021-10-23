@@ -1,7 +1,7 @@
 package com.company.EX14.Orders;
 
 import com.company.EX14.Customer.Customer;
-import com.company.EX14.Item;
+import com.company.EX14.Items.Item;
 
 public interface Order {
     boolean add(Item item);

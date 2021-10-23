@@ -1,10 +1,8 @@
 package com.company.EX14.Orders;
 
 import com.company.EX14.Customer.Customer;
-import com.company.EX14.Drink;
-import com.company.EX14.Item;
+import com.company.EX14.Items.Item;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
@@ -98,6 +96,8 @@ public class InternetOrder implements Order{
         if(finding == null){
             return false;
         }
+
+        totalCost-= finding.item.getPrice();
         ListNode findingPrev = finding.previous;
         ListNode findingNext = finding.next;
         if(findingPrev == null){

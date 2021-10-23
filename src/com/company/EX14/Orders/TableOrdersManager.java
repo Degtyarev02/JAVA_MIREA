@@ -2,9 +2,7 @@ package com.company.EX14.Orders;
 
 import com.company.EX14.Exceptions.IllegalTableNumber;
 import com.company.EX14.Exceptions.OrderAlreadyAddedException;
-import com.company.EX14.Item;
-
-import java.util.Map;
+import com.company.EX14.Items.Item;
 
 public class TableOrdersManager implements OrderManager {
     Order[] orders;
