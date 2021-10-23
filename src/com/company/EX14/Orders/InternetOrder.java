@@ -96,6 +96,8 @@ public class InternetOrder implements Order{
         if(finding == null){
             return false;
         }
+
+        totalCost-= finding.item.getPrice();
         ListNode findingPrev = finding.previous;
         ListNode findingNext = finding.next;
         if(findingPrev == null){
