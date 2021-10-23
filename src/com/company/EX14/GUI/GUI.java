@@ -32,12 +32,14 @@ public class GUI {
 		frame.add(button1);
 		frame.add(label);
 
-		button1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				AuthGUI authGUI = new AuthGUI();
-			}
+		button.addActionListener(e -> {
+			frame.dispose();
+			TableAuthGui authGUI = new TableAuthGui();
+		});
+
+		button1.addActionListener(e -> {
+			frame.dispose();
+			AuthGUI authGUI = new AuthGUI();
 		});
 
 	}
