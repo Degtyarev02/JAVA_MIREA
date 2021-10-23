@@ -1,5 +1,6 @@
 package com.company.EX14.GUI;
 
+import com.company.EX14.Customer.Address;
 import com.company.EX14.Customer.Customer;
 import com.company.EX14.Items.Dish;
 import com.company.EX14.Items.Drink;
@@ -28,7 +29,7 @@ public class InternetOrderGUI {
 			new Drink("Зеленый чай", "Успокаивает", 5, DrinkTypeENUM.GREEN_TEA),
 			new Drink("Сок апельсиновый", "Разных вкусов", 6, DrinkTypeENUM.JUICE),
 			new Drink("Сок вишневый", "Разных вкусов", 6, DrinkTypeENUM.JUICE),
-			new Drink("Виски", "Односолодовый виски", 20, DrinkTypeENUM.WHISKEY),
+			new Drink("Виски", "Односолодовый виски", 20, 40.0, DrinkTypeENUM.WHISKEY),
 	};
 
 	private void setFrame() {
@@ -65,10 +66,19 @@ public class InternetOrderGUI {
 		age.setText("Возраст: " + customer.getAge());
 		mainFrame.add(age);
 
+		JTextArea addressShow = new JTextArea();
+		addressShow.setFont(new Font("Arial", Font.PLAIN, 13));
+		addressShow.setSize(170, 140);
+		addressShow.setLocation(20, 90);
+		addressShow.setEditable(false);
+		Address currentAddress = customer.getAddress();
+		addressShow.setText(currentAddress.toString());
+		mainFrame.add(addressShow);
+
 		totalCostLabel = new JLabel("Всего: 0$");
 		totalCostLabel.setFont(new Font("Arial", Font.BOLD, 20));
 		totalCostLabel.setSize(200, 25);
-		totalCostLabel.setLocation(20, 100);
+		totalCostLabel.setLocation(20, 250);
 		mainFrame.add(totalCostLabel);
 
 		JLabel menuLabel = new JLabel("Выберите блюда:");
@@ -92,8 +102,17 @@ public class InternetOrderGUI {
 		mainFrame.add(addItemButton);
 
 		addItemButton.addActionListener(e -> {
+			try {
+				Drink drink = (Drink) comboBox.getSelectedItem();
+				if (customer.getAge() < 18 && Objects.requireNonNull(drink).isAlcoholicDrink()) {
+					JOptionPane.showMessageDialog(null, "Вам еще нет 18!", "Нельзя", JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+			} catch (Exception ex) {
+			}
 			order.add((Item) comboBox.getSelectedItem());
 			refactorMainOrderTextArea();
+
 		});
 
 		JButton removeItemButton = new JButton("Удалить");
@@ -105,6 +124,7 @@ public class InternetOrderGUI {
 		mainFrame.add(removeItemButton);
 
 		removeItemButton.addActionListener(e -> {
+
 			order.remove((Item) Objects.requireNonNull(comboBox.getSelectedItem()));
 			mainOrder.setText("Ваш заказ:\n");
 			refactorMainOrderTextArea();
@@ -126,6 +146,17 @@ public class InternetOrderGUI {
 		acceptOrderButton.setFocusable(false);
 		mainFrame.add(acceptOrderButton);
 
+		acceptOrderButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Ваш заказ скоро будет доставлен", "Подтверждено", JOptionPane.PLAIN_MESSAGE);
+				order = new InternetOrder(customer);
+				mainOrder.setText("Заказ оформлен!");
+				totalCostLabel.setText("Всего: 0$");
+
+			}
+		});
+
 
 	}
 
@@ -133,7 +164,6 @@ public class InternetOrderGUI {
 		Item[] currentItems = order.getItems();
 		mainOrder.setText("Ваш заказ:\n");
 		for (Item item : currentItems) {
-			System.out.println(order);
 			mainOrder.append("\n" + item.toString() + "\n");
 		}
 		totalCostLabel.setText("Всего: " + order.costTotal() + "$");
@@ -141,6 +171,7 @@ public class InternetOrderGUI {
 
 
 	public static void main(String[] args) {
-		InternetOrderGUI internetOrderGUI = new InternetOrderGUI(new Customer("Vladimir", "Degtyarev", 23));
+		Address address = new Address("Москва,Летчика Грицевца,108850,3,74,б");
+		InternetOrderGUI internetOrderGUI = new InternetOrderGUI(new Customer("Vladimir", "Degtyarev", 16, address));
 	}
 }
