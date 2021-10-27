@@ -20,17 +20,7 @@ public class InternetOrderGUI {
 	private JTextArea mainOrder;
 	private JComboBox<Item> comboBox;
 	private JLabel totalCostLabel;
-	Item[] items = {
-			new Dish(
-					"Салат Цезарь", "Нарезан лучше, чем римский полководец", 25),
-			new Dish("Стейк на грилле", "Прожарка на выбор", 30),
-			new Dish("Суп из форели", "Еще вчера плавала в Гудзонском заливе", 23),
-			new Dish("Раттатуй", "Из свежих овощей", 17),
-			new Drink("Зеленый чай", "Успокаивает", 5, DrinkTypeENUM.GREEN_TEA),
-			new Drink("Сок апельсиновый", "Разных вкусов", 6, DrinkTypeENUM.JUICE),
-			new Drink("Сок вишневый", "Разных вкусов", 6, DrinkTypeENUM.JUICE),
-			new Drink("Виски", "Односолодовый виски", 20, 40.0, DrinkTypeENUM.WHISKEY),
-	};
+	Item[] items = GUI.ITEMS;
 
 	private void setFrame() {
 		mainFrame = new JFrame("Internet Order");
