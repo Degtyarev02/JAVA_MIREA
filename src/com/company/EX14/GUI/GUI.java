@@ -15,7 +15,7 @@ public class GUI {
 	public static final Item[] ITEMS = {
 			new Dish("Салат Цезарь", "Нарезан лучше, чем римский полководец", 25),
 			new Dish("Стейк на гриле", "Прожарка на выбор", 30),
-			new Dish("Суп из форели", "Еще вчера плавала в Гудзонском заливе", 23),
+			new Dish("Суп из форели", "Еще вчера плавала у берегов Норвегии", 23),
 			new Dish("Раттатуй", "Из свежих овощей", 17),
 			new Dish("Наполеон", "Неизменен с 1812 года", 5),
 			new Dish("Пицца чили", "Острый как кинжал", 12),
@@ -24,6 +24,8 @@ public class GUI {
 			new Drink("Сок вишневый", "Разных вкусов", 6, DrinkTypeENUM.JUICE),
 			new Drink("Виски", "Односолодовый виски", 20, 40.0, DrinkTypeENUM.WHISKEY),
 			new Drink("Corona extra", "Кто-то сказал семья?", 10, 4.7, DrinkTypeENUM.BEER),
+			new Drink("Вода", "Для веганов", 1, DrinkTypeENUM.WATER),
+			new Drink("ЭКспрессо", "С ноткой грамматического кретинизма", 2, DrinkTypeENUM.COFFEE),
 	};
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Test");
