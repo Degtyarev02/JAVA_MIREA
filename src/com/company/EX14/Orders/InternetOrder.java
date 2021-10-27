@@ -159,6 +159,7 @@ public class InternetOrder implements Order{
         this.customer = customer;
     }
 
+    public int getSize(){return size;}
 
     private static class ListNode {
         private ListNode previous;

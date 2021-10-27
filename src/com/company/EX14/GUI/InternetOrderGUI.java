@@ -37,7 +37,7 @@ public class InternetOrderGUI {
 		order = new InternetOrder(customer);
 		JLabel name = new JLabel();
 		name.setFont(new Font("Arial", Font.PLAIN, 15));
-		name.setSize(100, 20);
+		name.setSize(200, 20);
 		name.setLocation(20, 20);
 		name.setText("Имя: " + customer.getFirstName());
 		mainFrame.add(name);
@@ -114,7 +114,6 @@ public class InternetOrderGUI {
 		mainFrame.add(removeItemButton);
 
 		removeItemButton.addActionListener(e -> {
-
 			order.remove((Item) Objects.requireNonNull(comboBox.getSelectedItem()));
 			mainOrder.setText("Ваш заказ:\n");
 			refactorMainOrderTextArea();
@@ -139,11 +138,14 @@ public class InternetOrderGUI {
 		acceptOrderButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ваш заказ скоро будет доставлен", "Подтверждено", JOptionPane.PLAIN_MESSAGE);
-				order = new InternetOrder(customer);
-				mainOrder.setText("Заказ оформлен!");
-				totalCostLabel.setText("Всего: 0$");
-
+				if (order.getSize() < 1) {
+					JOptionPane.showMessageDialog(null, "Вы ничего не заказали", "Ошибка", JOptionPane.PLAIN_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "Ваш заказ скоро будет доставлен", "Подтверждено", JOptionPane.PLAIN_MESSAGE);
+					order = new InternetOrder(customer);
+					mainOrder.setText("Заказ оформлен!");
+					totalCostLabel.setText("Всего: 0$");
+				}
 			}
 		});
 
