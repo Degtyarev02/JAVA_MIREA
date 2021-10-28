@@ -185,4 +185,9 @@ public class InternetOrder implements Order{
     public int hashCode() {
         return Objects.hash(size, totalCost, head, tail, customer);
     }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(itemsName());
+    }
 }

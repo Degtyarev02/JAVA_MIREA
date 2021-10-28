@@ -8,9 +8,9 @@ public class InternetOrderManager implements OrderManager {
     QueueNode tail;
     int size;
 
-    boolean add(Order order) {
+    public void add(Order order) {
         if (order == null) {
-            return false;
+            return;
         }
         all_cost += order.costTotal();
         if (size == 0) {
@@ -22,7 +22,6 @@ public class InternetOrderManager implements OrderManager {
             secondLast.next = tail;
         }
         size++;
-        return true;
     }
 
     Order remove() {
@@ -70,6 +69,7 @@ public class InternetOrderManager implements OrderManager {
         QueueNode tmp = head;
         for (int i = 0; i < size; i++) {
             allOrders[i] = tmp.value;
+            tmp = tmp.next;
         }
         return allOrders;
     }
@@ -77,6 +77,10 @@ public class InternetOrderManager implements OrderManager {
     @Override
     public int ordersCostSummary() {
         return all_cost;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     private static class QueueNode {

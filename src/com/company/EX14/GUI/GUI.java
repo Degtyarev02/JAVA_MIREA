@@ -4,6 +4,9 @@ import com.company.EX14.Items.Dish;
 import com.company.EX14.Items.Drink;
 import com.company.EX14.Items.DrinkTypeENUM;
 import com.company.EX14.Items.Item;
+import com.company.EX14.Orders.InternetOrderManager;
+import com.company.EX14.Orders.OrderManager;
+import com.company.EX14.Orders.TableOrdersManager;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -27,6 +30,9 @@ public class GUI {
 			new Drink("Вода", "Для веганов", 1, DrinkTypeENUM.WATER),
 			new Drink("ЭКспрессо", "С ноткой грамматического кретинизма", 2, DrinkTypeENUM.COFFEE),
 	};
+	public static InternetOrderManager internetOrderManager = new InternetOrderManager();
+	public static TableOrdersManager tableOrderManager = new TableOrdersManager();
+
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Test");
 		frame.setSize(280, 200);

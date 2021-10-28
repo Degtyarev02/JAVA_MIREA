@@ -125,6 +125,10 @@ public class TableOrder implements Order {
         return cost;
     }
 
+    public int getSize(){
+        return size;
+    }
+
     @Override
     public Customer getCustomer() {
         return this.customer;

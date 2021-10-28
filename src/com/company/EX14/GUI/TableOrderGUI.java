@@ -2,6 +2,8 @@ package com.company.EX14.GUI;
 
 import com.company.EX14.Customer.Address;
 import com.company.EX14.Customer.Customer;
+import com.company.EX14.Exceptions.IllegalTableNumber;
+import com.company.EX14.Exceptions.OrderAlreadyAddedException;
 import com.company.EX14.Items.Dish;
 import com.company.EX14.Items.Drink;
 import com.company.EX14.Items.DrinkTypeENUM;
@@ -145,11 +147,19 @@ public class TableOrderGUI {
 		acceptOrderButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ваш заказ скоро принесут наши официанты!", "Подтверждено", JOptionPane.PLAIN_MESSAGE);
-				order = new TableOrder(customer);
-				mainOrder.setText("Заказ оформлен! Приятного аппетита!");
-				totalCostLabel.setText("Всего: 0$");
-
+				if (order.getSize() < 1) {
+					JOptionPane.showMessageDialog(null, "Вы ничего не заказали", "Ошибка", JOptionPane.PLAIN_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "Ваш заказ скоро принесут наши официанты!", "Подтверждено", JOptionPane.PLAIN_MESSAGE);
+					order = new TableOrder(customer);
+					try {
+						GUI.tableOrderManager.add(order, freeTable);
+					} catch (IllegalTableNumber | OrderAlreadyAddedException ex) {
+						ex.printStackTrace();
+					}
+					mainOrder.setText("Заказ оформлен! Приятного аппетита!");
+					totalCostLabel.setText("Всего: 0$");
+				}
 			}
 		});
 

@@ -135,17 +135,36 @@ public class InternetOrderGUI {
 		acceptOrderButton.setFocusable(false);
 		mainFrame.add(acceptOrderButton);
 
+
+
 		acceptOrderButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (order.getSize() < 1) {
 					JOptionPane.showMessageDialog(null, "Вы ничего не заказали", "Ошибка", JOptionPane.PLAIN_MESSAGE);
 				} else {
+					GUI.internetOrderManager.add(order);
 					JOptionPane.showMessageDialog(null, "Ваш заказ скоро будет доставлен", "Подтверждено", JOptionPane.PLAIN_MESSAGE);
 					order = new InternetOrder(customer);
 					mainOrder.setText("Заказ оформлен!");
 					totalCostLabel.setText("Всего: 0$");
 				}
+			}
+		});
+
+		JButton orderManagerButton = new JButton("Заказы");
+		orderManagerButton.setFont(new Font("Arial", Font.PLAIN, 20));
+		orderManagerButton.setSize(180, 40);
+		orderManagerButton.setLocation(20, 600);
+		orderManagerButton.setBackground(new Color(0x129601));
+		orderManagerButton.setForeground(Color.white);
+		orderManagerButton.setFocusable(false);
+		mainFrame.add(orderManagerButton);
+
+		orderManagerButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				OrderManagerGUI orderManagerGUI = new OrderManagerGUI();
 			}
 		});
 
